@@ -1,9 +1,34 @@
-﻿;; MouseWheelEmulator.ahk
+;; AHKWheelBall.ahk
 /*
-MouseWheelEmulator
-Created by Blahman (blah238 at gmail dot com)
+AHKWheelBall
+Created by totto357 (totto357 at gmail dot com)
 v1.0
-10/18/2009
+2018/06/18
+
+# AHKWheelBall's Comments
+
+This script is reproduction of WheelBall with AutoHotKey.
+MouseWheelEmulator is used as a base script.
+
+## Changes
+
+The changes from MouseWheelEmulator are as follows.
+
+- The amount of movement of the mouse cursor and the amount of movement of the scroll are linked.
+- To decide which of vertical scrolling and horizontal scrolling is to be used, select the one with the larger amount of movement.
+- If the mouse cursor does not move while holding down the right click, fire a normal right click.
+
+Other movements are based on MouseWheelEmulator.
+
+## 日本語の記事
+
+Qiitaに解説記事を書きました。
+
+https://qiita.com/totto357/items/87f448779a06eb449d12
+
+# MouseWheelEmulator's Comments
+
+The original comments of MouseWheelEmulator are below.
 
 ## Summary
 This script combines the functionality of TheGood's AHKHID and ManaUser's MakeChord libraries to provide emulated middle-click and scroll wheel abilities to users of mice, trackpads and trackballs without a scroll wheel.
@@ -58,8 +83,10 @@ mouse_Threshold = 1 ; the number of pixels the mouse must move for a scroll tick
 MakeChord("LButton", "RButton", "scrollChord", 20) ; Chord to activate middle click or scrolling. See MakeChord.ahk for instructions
 scroll_Hotkey = RButton ; Hotkey to activate middle click or scrolling
 
-mouse_delta = 3
-sleep_interval = 30
+;; Added with AHKWheelBall
+
+mouse_delta = 3 ; Weighting of scroll amount
+sleep_interval = 30 ; Sleep time at InputMsg event
 
 ;; End Configuration
 
