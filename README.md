@@ -11,3 +11,9 @@ After starting the software (stay resident), if you hold down the right button o
 
 1. Install `AutoHotKey`
 1. Run `AHKWheelBall.ahk`
+
+## 日本語の記事
+
+Qiitaに解説記事を書きました。
+
+https://qiita.com/totto357/items/87f448779a06eb449d12
