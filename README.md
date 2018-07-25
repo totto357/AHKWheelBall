@@ -9,6 +9,12 @@ After starting the software (stay resident), if you hold down the right button o
 
 ## Getting Started
 
+### Download
+
+Go to [Release page](https://github.com/totto357/AHKWheelBall/releases)
+
+### Compile yourself
+
 1. Install `AutoHotKey`
 1. Run `AHKWheelBall.ahk`
 
