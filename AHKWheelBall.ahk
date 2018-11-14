@@ -106,7 +106,6 @@ hGui := WinExist()
 OnMessage(0x00FF, "InputMsg")
 
 SetDefaultMouseSpeed, 0
-scrollMode = 0 ; 0 = MouseClick, WheelUp/WheelDown, 1 = WM_VSCROLL/WM_HSCROLL, 2 = WM_MOUSEWHEEL/WM_HSCROLL
 CoordMode, Mouse, Screen
 
 HotKey, %scroll_Hotkey%, scrollChord
