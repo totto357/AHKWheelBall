@@ -119,7 +119,6 @@ scrollChord:
   MouseGetPos, m_x, m_y, winID, control
   WinGet, procName, ProcessName, ahk_id %winID%
   hw_m_target := DllCall( "WindowFromPoint", "int", m_x, "int", m_y )
-  GetScrollMode()
   AHKHID_Register(1, 2, hGui, RIDEV_INPUTSINK)
 return
 
@@ -163,34 +162,6 @@ InputMsg(wParam, lParam) {
   ; ToolTip, % "dX = " . x . " " . "dY = " . dy . a_tab . winID . a_tab . control . a_tab . procName . a_tab . hw_m_target . a_tab . scrollMode
   ;; Uncomment the above line for handy debug info shown while scrolling
   Sleep, % sleep_interval
-}
-
-GetScrollMode() {
-  global
-  local ctl_x, ctl_y, ctl_w, ctl_h, ctl_hwnd, win_x, win_y
-
-  if (procName = "hh.exe" or procName = "iexplore.exe" or procName = "dexplore.exe" or procName = "OUTLOOK.EXE")
-  {
-    scrollMode = 1
-    WinGetPos, win_x, win_y, , , ahk_id %WinID%
-    ControlGetPos, ctl_x, ctl_y, ctl_w, ctl_h, Internet Explorer_Server1, ahk_id %WinID%
-
-    if (((m_x >= win_x + ctl_x) and (m_x <= win_x + ctl_x + ctl_w)) and ((m_y >= win_y + ctl_y) and (m_y <= win_y + ctl_y + ctl_h)))
-      control = Internet Explorer_Server1
-    else
-    {
-      ControlGetPos, ctl_x, ctl_y, ctl_w, ctl_h, NETUIHWND1, ahk_id %WinID%
-
-      if (((m_x >= win_x + ctl_x) and (m_x <= win_x + ctl_x + ctl_w)) and ((m_y >= win_y + ctl_y) and (m_y <= win_y + ctl_y + ctl_h)))
-        scrollMode = 2
-    }
-  }
-  else if (procName = "firefox.exe" or procName = "notepad.exe" or procName = "explorer.exe" or procName = "EXCEL.exe")
-    scrollMode = 2
-  else
-    scrollMode = 0
-
-  return
 }
 
 ScrollDown() {
