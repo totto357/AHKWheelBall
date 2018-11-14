@@ -195,46 +195,22 @@ GetScrollMode() {
 
 ScrollDown() {
   global
-
-  if (scrollMode = 0)
-    MouseClick, WheelDown
-  else if (scrollMode = 1)
-    PostMessage, 0x115, 1, 0, %control%, ahk_id %winID%
-  else
-  {
-    ; WM_MOUSEWHEEL
-    ; WHEEL_DELTA = 120
-    PostMessage, 0x20A, -120 << 16, ( m_y << 16 )|m_x,, ahk_id %hw_m_target%
-  }
+  Click, WheelDown
 }
 
 ScrollUp() {
   global
-
-  if (scrollMode = 0)
-    MouseClick, WheelUp
-  else if (scrollMode = 1)
-    PostMessage, 0x115, 0, 0, %control%, ahk_id %winID%
-  else if (scrollMode = 2)
-  {
-    ; WM_MOUSEWHEEL
-    ; WHEEL_DELTA = 120
-    PostMessage, 0x20A, 120 << 16, ( m_y << 16 )|m_x,, ahk_id %hw_m_target%
-  }
+  Click, WheelUp
 }
 
 ScrollRight() {
   global
-  ; if (scrollMode <> 0)
-  ; loop, 2
-  SendMessage, 0x114, 1, 0, %control%, ahk_id %winID%
+  Send, +{ Click, WheelDown }
 }
 
 ScrollLeft() {
   global
-  ; if (scrollMode <> 0)
-  ; loop, 2
-  SendMessage, 0x114, 0, 0, %control%, ahk_id %winID%
+  Send, +{ Click, WheelUp }
 }
 
 ^!CtrlBreak::ExitApp
