@@ -175,12 +175,12 @@ ScrollUp() {
 
 ScrollRight() {
   global
-  Send, +{ Click, WheelDown }
+  Click, WheelRight
 }
 
 ScrollLeft() {
   global
-  Send, +{ Click, WheelUp }
+  Click, WheelLeft
 }
 
 ^!CtrlBreak::ExitApp
